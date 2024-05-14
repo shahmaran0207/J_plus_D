@@ -35,34 +35,26 @@
 
 
 	<form method="POST">
-	<!-- Masthead-->
-	<header class="masthead">
-		<div class="container position-relative">
-			<div class="row justify-content-center">
-				<div class="col-xl-6">
-					<div class="text-center text-white">
-						<!-- Page heading (페이지 제목) -->
-						<h1 class="mb-5">여행 예산을 입력해주세요</h1>
-						<!-- Signup form (가입 양식) -->
-							<!-- 여행 예산 입력 필드 -->
+		<!-- Masthead-->
+		<header class="masthead">
+			<div class="container position-relative">
+				<div class="row justify-content-center">
+					<div class="col-xl-6">
+						<div class="text-center text-white">
+							<h1 class="mb-5">여행 예산을 입력해주세요</h1>
 							<div class="row">
 								<div class="col">
-									<input type="text" class="form-control form-control-lg"
+									<input name="money" type="number" class="form-control form-control-lg"
 										id="emailAddress" placeholder="여행 예산 입력칸"
-										oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-										data-sb-validations="required" />
+										data-sb-validations="required"  required/>
 
 								</div>
 								<div class="col-auto">
-									<!-- 확인 버튼 -->
 									<button class="btn btn-primary btn-lg" id="submitButton"
 										type="button" onclick="submitForm()">확인</button>
 								</div>
 							</div>
-							<!-- 제출 성공 메시지 -->
-							<!---->
-							<!-- 이것은 사용자가 양식을 성공적으로 제출한 경우 사용자가 볼 내용입니다. -->
-							<div class="d-none" id="submitSuccessMessage">
+ 							<div class="d-none" id="submitSuccessMessage">
 								<div class="text-center mb-3">
 									<div class="fw-bolder">예산이 성공적으로 입력되었습니다.</div>
 									<p>아래로 내려가 다음 선택 사항을 선택해주세요.</p>
@@ -74,18 +66,18 @@
 							<div class="d-none" id="submitErrorMessage">
 								<div class="text-center text-danger mb-3">메시지 전송 중 오류 발생!</div>
 							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 
-	<!-- 추가된 결과 표시 영역 -->
-	<div id="result" class="text-center mt-3"></div>
+		<!-- 추가된 결과 표시 영역 -->
+		<div id="result" class="text-center mt-3"></div>
 
-	<!-- Icons Grid-->
-	<section class="features-icons bg-light text-center" id="fu">
-					<div class="container">
+		<!-- Icons Grid-->
+		<section class="features-icons bg-light text-center" id="fu">
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-4">
 						<i class="fa-solid fa-location-dot" style="color: #005eff;"></i>
@@ -101,15 +93,15 @@
 					</p>
 				</div>
 			</div>
-			
-						<div class="container">
+
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-4">
 						<i class="fa-solid fa-calendar-days" style="color: #0d6efd;"></i>
 					</div>
 					<h3>여행 월</h3>
 					<p id="areafont">
-						여행을 가고자 하는 월을 선택해주세요!<br>(1월~12월)
+						여행을 가고자 하는 월을 선택해주세요!<br>(1월~12월)<br>숫자만 입력해 주세요!
 					</p>
 					<input id="playmonth" name="month"
 						placeholder="여행갈 월을 입력해주세요(1~12월)" required>
@@ -123,7 +115,7 @@
 					</div>
 					<h3>숙박 여부</h3>
 					<p id="areafont">
-						숙박 선택 가능일은 0일에서 <br>최대 5일까지 입니다!
+						숙박 선택 가능일은 0일에서 <br>최대 5일까지 입니다!<br>숫자만 입력해 주세요!
 					</p>
 					<input id="playnight" name="night"
 						placeholder="몇일동안 숙박하실지 정해주세요(0~5일)" required>
@@ -143,44 +135,46 @@
 						placeholder="숙박하실 장소를 입력헤주세요" required>
 				</div>
 			</div>
-			
-					<div class="container">
+
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-4">
 						<i class="fa-solid fa-bowl-food" style="color: #0d6efd;"></i>
 					</div>
 					<h3>식음료 장소</h3>
 					<p id="areafont">
-						식사를 몇 끼 하실지 입력해 주세요!<br>(0~15끼)
+						식사를 몇 끼 하실지 입력해 주세요!<br>(0~15끼)<br>숫자만 입력해 주세요!
 					</p>
 					<input id="playfood" name="food" placeholder="식사를 몇 끼 하실지 입력해 주세요"
 						required>
 				</div>
 			</div>
-			
-						<div class="container">
+
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-4">
 						<i class="fa-solid fa-map-location-dot" style="color: #0d6efd;"></i>
 					</div>
 					<h3>관광 여부</h3>
 					<p id="areafont">
-						관광여부를 입력해 주세요!<br>(미정, 면세점, 레저용품 쇼핑, 대형쇼핑몰, 관광유원시설, 스키장, 골프장, 기타레저, 문화서비스)
+						관광여부를 입력해 주세요!<br>(미정, 면세점, 레저용품쇼핑, 대형쇼핑몰, 관광유원시설, 스키장, 골프장,
+						문화서비스)
 					</p>
 					<input id="playgoal" name="goal" placeholder="여행목적을 입력해주세요"
 						required>
 				</div>
 			</div>
 
-		
+
 			<div class="dis" style="font-size: 20px; margin-top: 23px;">
 				<button class="btn btn-primary btn-lg px-4 me-sm-3">최종 제출</button>
 			</div>
-	</section>
+		</section>
 
-</form>
+	</form>
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-	
+
+
 </body>
 
 </html>
